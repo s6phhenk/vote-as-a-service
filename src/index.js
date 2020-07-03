@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import ChoiceBar from './components/ChoiceBar';
+import './app.css';
+import VotingComponent from './components/VotingComponent';
 import * as serviceWorker from './serviceWorker';
+
+const vote = {
+  title: "How is your day?",
+  description: "Tell me how you are feeling today",
+  choices: [
+    {
+      id: "choice_1", title: "Good", count: 7
+    }
+    
+  ]
+}
 
 ReactDOM.render(
   <React.StrictMode>
-     <ChoiceBar title="JavaScript" percent={37}/>
+     <VotingComponent vote={vote}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
