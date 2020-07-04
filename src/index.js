@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './app.css';
-import VotingComponent from './components/VotingComponent';
+import './Index.css';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
+import VotingComponent from './components/VotingComponent';
 
 const vote = {
   title: "How is your day?",
@@ -16,9 +17,9 @@ const vote = {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
-     <VotingComponent vote={vote}/>
-  </React.StrictMode>,
+     <App>
+       <VotingComponent vote= {vote}/>
+  </App>,
   document.getElementById('root')
 );
 
