@@ -8,9 +8,10 @@ export default function VotingComponent({ vote: initialVote }) {
 
     function registerChoice (choice) {
         setVote({...vote, 
-            choices: vote.choices.map(choice => choice.id !== choice.id ? choice : {
-                ...choice, count: choice.count +1 
-            } )})
+            choices: vote.choices.map(c => choice.id !== c.id ? c : {
+                ...choice, 
+                count: choice.count +1 } 
+                )})
     }
 
   return (
