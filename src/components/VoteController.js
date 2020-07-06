@@ -1,42 +1,42 @@
-import React, { useState } from 'react';
-import VoteList from './VoteList';
+import React from "react";
+import VoteList from "./VoteList";
 
-export default function VoteController ({initalVotes}) {
+export default function VoteController({ initialVotes }) {
+  const [allVotes, setAllVotes] = React.useState(initialVotes);
+  const [currentVoteId, setCurrentVoteId] = React.useState(null);
 
-    const [allVotes, setAllVotes] = useState(initalVotes);
-    const [currentVoteId, setCurrentVoteId] = useState(null);
+  function setCurrentVote(vote) {
+    setCurrentVoteId(vote.id);
+  }
 
-    function setCurrentVote (vote) {
-        setCurrentVoteId(vote.id);
-    }
+  function unsetCurrentVote() {
+    setCurrentVoteId(null);
+  }
 
-    function unsetCurrentVote () {
-        setCurrentVoteId(null)
-    }
+  function registerVote(vote, choice) {
+    const newVotes = allVotes.map(v =>
+      v.id !== vote.id
+        ? v
+        : {
+            ...vote,
+            choices: vote.choices.map(c =>
+              c.id !== choice.id ? c : { ...c, count: c.count + 1 }
+            )
+          }
+    );
 
-    function registerVote (vote, choice) {
-        const newVotes = allVotes.map ( v =>
-            v.id !== vote.id ? v : {
-                ...vote, choices: vote.choices.map ( c =>
-                    c.id !== choice.id ? c: {
-                        ...c, count: c.count +1 
-                    }
-                )
-            }
-        );
-        setAllVotes(newVotes);
-    }
+    setAllVotes(newVotes);
+  }
 
-
-    return (
-        <div>
-            <VoteList
-            allVotes={allVotes}
-            currentVoteId={currentVoteId}
-            onSelectVote={setCurrentVote}
-            onDismissVote={unsetCurrentVote}
-            onRegisterVote={registerVote}
-            />
-        </div>
-    )
+  return (
+    <div>
+      <VoteList
+        allVotes={allVotes}
+        currentVoteId={currentVoteId}
+        onSelectVote={setCurrentVote}
+        onDismissVote={unsetCurrentVote}
+        onRegisterVote={registerVote}
+      />
+    </div>
+  );
 }
