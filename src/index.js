@@ -18,7 +18,7 @@ const vote = {
 
 ReactDOM.render(
      <App>
-       <VotingComponent vote= {vote}/>
+       <VoteController/>
   </App>,
   document.getElementById('root')
 );
