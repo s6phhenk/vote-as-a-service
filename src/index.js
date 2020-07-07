@@ -16,6 +16,7 @@ const allVotes = [
       { id: "choice_3", title: "Not sure yet", count: 1 }
     ]
   },
+  
   {
     id: "vote_2",
     title: "Programming languages",

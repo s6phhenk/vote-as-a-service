@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import ChoiceBar from "./ChoiceBar";
 
 export default function VotingComponent({ vote: initialVote }) {
-    const [vote, setVote] = React.useState(initialVote);
+    const [vote, setVote] = useState(initialVote);
 
     const totalVotes = vote.choices.reduce((prev, curr) => prev + curr.count, 0);
 

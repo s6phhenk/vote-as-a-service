@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import VoteList from "./VoteList";
+import InactiveVoteComposer from './InactiveVoteComposer';
+import VoteComposer from "./VoteComposer";
 
 export default function VoteController({ initialVotes }) {
-  const [allVotes, setAllVotes] = React.useState(initialVotes);
-  const [currentVoteId, setCurrentVoteId] = React.useState(null);
+  const [allVotes, setAllVotes] = useState(initialVotes);
+  const [currentVoteId, setCurrentVoteId] = useState(null);
+  const [voteComposerActive, setVoteComposerActive] = useState(false);
+
+  function openVoteComposer (vote) {
+    setVoteComposerActive(true);
+    unsetCurrentVote(vote.id);
+  }
+
+  function closeVoteComposer () {
+    setVoteComposerActive(false);
+  }
 
   function setCurrentVote(vote) {
     setCurrentVoteId(vote.id);
+    setVoteComposerActive(false);
   }
 
   function unsetCurrentVote() {
@@ -37,6 +50,19 @@ export default function VoteController({ initialVotes }) {
         onDismissVote={unsetCurrentVote}
         onRegisterVote={registerVote}
       />
+      {voteComposerActive ? (
+        // if true,..
+        // Wenn der voteComposer state (true) aktiv ist, rendere den VoteComposer,
+        // ansonsten rendere Inactive VoteComposer
+        <VoteComposer 
+          onDeactivate={closeVoteComposer} 
+        /> ) : (
+        <InactiveVoteComposer 
+          onActivate={openVoteComposer}
+        />
+        
+      )
+}
     </div>
   );
 }
