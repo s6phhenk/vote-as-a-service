@@ -1,9 +1,9 @@
-Projekt: 
-# Vote As a Service Web Applikation zum Erstellen von Umfragen
+## Projekt: 
+### Vote As a Service Web Applikation zum Erstellen von Umfragen
 
-## Geschrieben in React.js 
-
-## Component Aufbau:
+### Geschrieben in React.js 
+#### Component Aufbau:
+```
 * App
     * VoteController (regelt den state)
         * VoteList (rendert die hinzugefügten VoteKomponenten sowie die       Zusammenfassung aller abgegebenen Votes)
@@ -11,3 +11,5 @@ Projekt:
             * VotingComponent 
                 * ChoiceBar
         * VoteComposer (Zum hinzufügen von Kategorien)
+
+```
