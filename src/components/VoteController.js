@@ -8,6 +8,11 @@ export default function VoteController({ initialVotes }) {
   const [currentVoteId, setCurrentVoteId] = useState(null);
   const [voteComposerActive, setVoteComposerActive] = useState(false);
 
+  function addVote (vote) {
+    setAllVotes([allVotes, vote]);
+    closeVoteComposer();
+  }
+
   function openVoteComposer (vote) {
     setVoteComposerActive(true);
     unsetCurrentVote(vote.id);
@@ -56,6 +61,7 @@ export default function VoteController({ initialVotes }) {
         // ansonsten rendere Inactive VoteComposer
         <VoteComposer 
           onDeactivate={closeVoteComposer} 
+          onSave={addVote}
         /> ) : (
         <InactiveVoteComposer 
           onActivate={openVoteComposer}

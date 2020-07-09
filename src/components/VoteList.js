@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import VoteSummary from "./VoteSummary";
 import VotingComponent from "./VotingComponent";
 

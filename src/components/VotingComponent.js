@@ -1,18 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 import ChoiceBar from "./ChoiceBar";
 
-export default function VotingComponent({ vote: initialVote }) {
-    const [vote, setVote] = useState(initialVote);
-
-    const totalVotes = vote.choices.reduce((prev, curr) => prev + curr.count, 0);
-
-    function registerChoice (choice) {
-        setVote({...vote, 
-            choices: vote.choices.map(c => choice.id !== c.id ? c : {
-                ...choice, 
-                count: choice.count +1 } 
-                )})
-    }
+export default function VotingComponent({
+  vote,
+  onRegisterChoice,
+  onDismissVote
+}) {
+  const totalVotes = vote.choices.reduce((prev, curr) => prev + curr.count, 0);
 
   return (
     <div className="Row VotingRow Spacer">
@@ -30,9 +24,14 @@ export default function VotingComponent({ vote: initialVote }) {
             title={choice.title}
             percent={choice.count * (100 / totalVotes)}
             count={choice.count}
-            onClickHandler={ () => registerChoice(choice)}
+            onClickHandler={() => onRegisterChoice(vote, choice)}
           />
         ))}
+      </div>
+      <div className="ButtonBar">
+        <div className="Button" onClick={onDismissVote}>
+          Vote later
+        </div>
       </div>
     </div>
   );
