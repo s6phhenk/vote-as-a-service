@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function App({children}) {
+    // children als parameter, 
     return (
         <div className="Background">
             <div className="Header">
