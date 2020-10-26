@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default function App({children}) {
-    // children als parameter, 
+    // Gibt das Grundgerüst der App aus 
+        // Kind Komponenten, die einer Eltern-Komponente übergeben werden 
+        // stehen innerhalb der Elternkomponente über das property children zur Verfügung
     return (
         <div className="Background">
             <div className="Header">

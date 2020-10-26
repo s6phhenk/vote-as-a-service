@@ -1,8 +1,13 @@
 import React from "react";
 
+// durch Klicken auf den VoteComposer öffnet sich das Formular zum Befüllen einer neuen vote
+// zeigt Buttons zum Speichern und Abbrechen des Editiors an
 export default function VoteComposer({ onSave, onDeactivate }) {
+  
+  // 2 neue Zustände, um Felder zu befüllen 
   const [voteTitle, setVoteTitle] = React.useState("");
   const [voteDescription, setVoteDescription] = React.useState("");
+
   const [choices, setChoices] = React.useState([""]);
 
   function updateChoice(choiceIx, choiceTitle) {
@@ -53,6 +58,8 @@ export default function VoteComposer({ onSave, onDeactivate }) {
             placeholder="What do you want to know ?"
             value={voteTitle}
             onChange={e => setVoteTitle(e.target.value)}
+            // Eingabefelder sind mit onChange Event Handler versehen, 
+            // um bei Änderung die UI zu aktualisieren und neu zu rendern
           />
         </h1>
         <input

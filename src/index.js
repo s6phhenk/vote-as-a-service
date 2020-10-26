@@ -4,7 +4,7 @@ import './Index.css';
 import App from './App';
 import VoteController from './components/VoteController';
 
-// Sample data
+// Sample data array of objects 
 const allVotes = [
   {
     id: "vote_1",
@@ -29,13 +29,15 @@ const allVotes = [
   }
 ];
 
-// Render VotingComponent
+// Render App
 ReactDOM.render(
      <App>
        <VoteController
+      // allVotes wird der Votecontroller Komponente 
+      // mit der initialVotes property übergeben
        initialVotes = {allVotes}
        />
-  </App>,
+      </App>,
   document.getElementById('root')
 );
 

@@ -1,5 +1,6 @@
 import React from "react";
 
+// rendert eine Umfrage in der zusammengefassten Lister aller Umfragen 
 export default function VoteSummary({ vote, onActivate }) {
   const totalVotes = vote.choices.reduce((prev, curr) => prev + curr.count, 0);
 

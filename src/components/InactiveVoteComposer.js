@@ -1,5 +1,8 @@
 import React from "react";
 
+// wird immer dann dargestellt, wenn gerade eine Umfrage offen ist 
+// Callback onActivate als Property 
+// --> wird aufgerufen, sobald auf das composer div geklickt wird 
 export default function InactiveVoteComposer({ onActivate }) {
   return (
     <div className="Row VotesRow Spacer" onClick={onActivate}>

@@ -4,6 +4,9 @@ import React from "react";
 import VoteSummary from "./VoteSummary";
 import VotingComponent from "./VotingComponent";
 
+// ist für das Rendern einer Liste aller bekannten Umfragen verantwortlich 
+// Votelist und deren Kindkomponenten sind zustandslos und kommunizieren nur über
+// event handler mit ihren Elternkomponenten 
 export default function VoteList({
   allVotes,
   currentVoteId,
@@ -13,6 +16,9 @@ export default function VoteList({
 }) {
   return (
     <div>
+    {/* entspricht die vote id der aktuellen vote id, dann render doch bitte eine neue
+    votingComponent mit den folgenden properties, ansonsten
+    zeige die Liste aller Umfragen an  */}
       {allVotes.map(vote =>
         vote.id === currentVoteId ? (
           <VotingComponent
