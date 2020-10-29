@@ -20,6 +20,8 @@ export default function VoteController({ initialVotes }) {
   const [voteComposerActive, setVoteComposerActive] = useState(false);
 
     function addVote (vote) {
+      // bestehendes Array kopieren, um neue Vote ergänzen
+      // und in den Zustand setzen 
       setAllVotes([allVotes, vote]);
       closeVoteComposer();
     }

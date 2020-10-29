@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './Index.css';
+import 'react-app-polyfill/ie11';
 import App from './App';
 import VoteController from './components/VoteController';
 
